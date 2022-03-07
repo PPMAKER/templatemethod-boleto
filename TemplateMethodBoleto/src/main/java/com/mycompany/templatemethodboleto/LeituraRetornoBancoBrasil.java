@@ -9,7 +9,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
-public class LeituraRetornoBancoBrasil extends ProcessadorBoletos {
+public class LeituraRetornoBancoBrasil implements LeituraRetorno {
 
     @Override
         protected Boleto processarLinhaArquivo(String[] vetorLinhaArq){

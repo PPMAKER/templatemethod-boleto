@@ -2,7 +2,12 @@ package com.manoelcampos.retornoboleto;
 
 import java.util.List;
 
-public abstract class ProcessarBoletos {
+public class ProcessarBoletos {
+    private LeituraRetorno leituraRetorno;
+    
+    public ProcessadorBoletos(LeituraRetorno leituraRetorno){
+        this.leituraRetorno = leituraRetorno;
+    }
     public final List<Boleto> processar(String nomeArquivo){
         try {
             BufferedReader reader = Files.newBufferedReader(Paths.get(nomeArquivo));
@@ -10,7 +15,7 @@ public abstract class ProcessarBoletos {
             List<Boleto> boletos = new ArrayList<>();
             while((line = reader.readLine()) != null){
                 String[] vetor = line.split(";");
-                Boleto boleto = processasrLinhaArquivo(vetor);
+                Boleto boleto = leituraRetorno.processasrLinhaArquivo(vetor);
                 boletos.add(boleto);
                 System.out.println(boleto);
         }
@@ -20,5 +25,4 @@ public abstract class ProcessarBoletos {
         }
 }
 
-    protected abstract Boleto processarLinhaArquivo(String[] vetorLinhaArq);
 }

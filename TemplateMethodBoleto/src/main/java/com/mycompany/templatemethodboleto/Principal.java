@@ -13,7 +13,7 @@ package com.mycompany.templatemethodboleto;
 public class Principal {
     public static void main(String[] args) {
         
-        ProcessarBoletos processador = new LeituraRetornoBradesco();
+        ProcessarBoletos processador = new ProcessadorBoletos(new LeituraRetornoBradesco());
 
         String nomeArquivo = "src/main/resources/bradesco.csv";
         System.out.println("Lendo arquivo " + nomeArquivo + "\n");
